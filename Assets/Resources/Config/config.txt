@@ -1,0 +1,23 @@
+{
+  "platform": "Ios",
+  "game_name": "Running_Test_BJ",
+  "package_name": "com.beijing.beijing.test",
+  "email": "",
+  "firebase_topic": "",
+  "libs": {
+    "appsflyer": {"dev_key": "用正式的", "ios_appid": "8216621888"},
+    "adjust": {"dev_key": "m2neivkj16v4"},
+    "fb_appid": "",
+    "fb_apptoken": "",
+    "max": {
+      "rewarded_ad_unit_id":"74bb34adf24948a6",
+      "interstitial_ad_unit_id":"1b06637f46a02a7c"
+    },
+    "topon": {
+      "app_id": "",
+      "app_key": "",
+      "rewarded_ad_unit_id":"",
+      "interstitial_ad_unit_id":""
+    }
+  }
+}

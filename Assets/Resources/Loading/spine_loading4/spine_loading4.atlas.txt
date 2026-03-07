@@ -1,0 +1,48 @@
+
+spine_loading4.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bowen2
+  rotate: false
+  xy: 2, 68
+  size: 497, 142
+  orig: 497, 144
+  offset: 0, 0
+  index: -1
+diaoyu1
+  rotate: true
+  xy: 536, 361
+  size: 116, 369
+  orig: 116, 369
+  offset: 0, 0
+  index: -1
+diaoyu2
+  rotate: false
+  xy: 754, 2
+  size: 237, 202
+  orig: 237, 202
+  offset: 0, 0
+  index: -1
+huanxiong
+  rotate: false
+  xy: 2, 212
+  size: 532, 265
+  orig: 532, 265
+  offset: 0, 0
+  index: -1
+shenti
+  rotate: false
+  xy: 536, 206
+  size: 287, 153
+  orig: 287, 153
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 501, 23
+  size: 251, 181
+  orig: 251, 181
+  offset: 0, 0
+  index: -1

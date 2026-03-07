@@ -1,0 +1,27 @@
+
+spine_loading3.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+yu1
+  rotate: true
+  xy: 2, 2
+  size: 89, 73
+  orig: 89, 73
+  offset: 0, 0
+  index: -1
+yu4
+  rotate: true
+  xy: 2, 2
+  size: 89, 73
+  orig: 89, 73
+  offset: 0, 0
+  index: -1
+yu2
+  rotate: true
+  xy: 77, 10
+  size: 81, 65
+  orig: 81, 65
+  offset: 0, 0
+  index: -1
