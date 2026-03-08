@@ -37,6 +37,15 @@ namespace GamePlay
             
         }
 
+        private EPlayMode ResolvePlayMode()
+        {
+#if UNITY_EDITOR
+            return Local ? EPlayMode.EditorSimulateMode : EPlayMode.HostPlayMode;
+#else
+            return Local ? EPlayMode.OfflinePlayMode : EPlayMode.HostPlayMode;
+#endif
+        }
+
         private void Update()
         {
             if (launcherFsm != null)
@@ -48,9 +57,18 @@ namespace GamePlay
         private async UniTask StartAsync()
         {
             ConfigSelect.GetUseConfig();
+            RunPlayMode = ResolvePlayMode();
+            GlobalSetting.Configure(new YooAssetRuntimeConfig
+            {
+                PackageName = string.IsNullOrEmpty(PackageName) ? GlobalSetting.PackageName : PackageName,
+                ResourceVersion = GlobalSetting.ResourceVersion,
+                PlayMode = RunPlayMode,
+                MainHostServer = "https://bunny.sheriffbunny.com/Test",
+                FallbackHostServer = "https://bunny.sheriffbunny.com/Test"
+            });
             Application.targetFrameRate = FrameRate;
             Application.runInBackground = true;
-            GameCommon.GameName = PackageName;
+            GameCommon.GameName = GlobalSetting.PackageName;
             RootManager.MgrRoot = GameObject.Find("Mgr");
             RootManager.UIRoot = GameObject.Find("Canvas").transform; 
             
