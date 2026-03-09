@@ -44,6 +44,7 @@ namespace GamePlay.LauncherFsm
 
             await operation.Task;
 
+            var a =package.GetAllAssetInfos();
             Debug.Log($"UpdateManifest Pass");
 
             if (operation.Status ==  EOperationStatus.Failed)

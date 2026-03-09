@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root Version="v2025.8.28">
+  <Common ShowPackageView="True" ShowEditorAlias="False" UniqueBundleName="False" />
+  <Package PackageName="Tile" PackageDesc="" AutoAddressable="True" SupportExtensionless="True" LocationToLower="False" IncludeAssetGUID="False" IgnoreRuleName="NormalIgnoreRule">
+    <Group GroupActiveRule="EnableGroup" GroupName="BuildIn" GroupDesc="" AssetTags="BuildIn">
+      <Collector CollectPath="Assets/InRemote/cardIcon" CollectGUID="0ef60ba3d4d25b54ba2df72de402fe72" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+    <Group GroupActiveRule="EnableGroup" GroupName="Hot" GroupDesc="" AssetTags="Hot">
+      <Collector CollectPath="Assets/InRemote/common" CollectGUID="df1cef3fda9e492429f25c960a96fab0" CollectType="MainAssetCollector" AddressRule="AddressByFileName" PackRule="PackDirectory" FilterRule="CollectAll" UserData="" AssetTags="" />
+    </Group>
+  </Package>
+</root>
