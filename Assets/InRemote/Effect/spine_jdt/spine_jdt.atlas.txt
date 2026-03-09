@@ -1,0 +1,27 @@
+
+spine_jdt.png
+size: 128,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/JinDuTiao
+  rotate: false
+  xy: 2, 2
+  size: 67, 47
+  orig: 68, 47
+  offset: 1, 0
+  index: -1
+images/NewYear_XueHua_01
+  rotate: false
+  xy: 71, 19
+  size: 30, 30
+  orig: 32, 32
+  offset: 1, 1
+  index: -1
+liziguangdian (85)
+  rotate: false
+  xy: 71, 3
+  size: 14, 14
+  orig: 100, 100
+  offset: 45, 42
+  index: -1

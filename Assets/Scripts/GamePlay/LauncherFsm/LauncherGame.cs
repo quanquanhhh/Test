@@ -1,4 +1,6 @@
-﻿using Foundation.FSM;
+﻿using Foundation;
+using Foundation.FSM;
+using UnityEngine;
 
 namespace GamePlay.LauncherFsm
 {
@@ -13,6 +15,8 @@ namespace GamePlay.LauncherFsm
         protected internal override void OnEnter(IFsm<LauncherFsm> fsm)
         {
             base.OnEnter(fsm);
+            var a =AssetLoad.Instance.LoadGameObjectSync("TestPrefab");
+            Debug.Log( a == null ? " 1 " :"2");
         }
     }
 }

@@ -44,6 +44,7 @@ namespace Foundation
 
         private void SendPostEvent(Dictionary<string, object> connect, string posId)
         {
+            return;
             string logId = Guid.NewGuid().EncodingText();
 
             Dictionary<string, object> airedale = new Dictionary<string, object>();

@@ -6,11 +6,11 @@ namespace GamePlay
     [System.Serializable]
     public class YooAssetRuntimeConfig
     {
-        public string PackageName = "RH4";
+        public string PackageName = "Tile";
         public string ResourceVersion = "v1";
-        public EPlayMode PlayMode = EPlayMode.EditorSimulateMode;
-        public string MainHostServer = "https://bunny.sheriffbunny.com/Test";
-        public string FallbackHostServer = "https://bunny.sheriffbunny.com/Test";
+        public EPlayMode PlayMode = EPlayMode.HostPlayMode;
+        public string MainHostServer = "https://tile.desiregirls.net/Test";
+        public string FallbackHostServer = "https://tile.desiregirls.net/Test";
 
         public string GetMainHostServerURL()
         {
@@ -29,7 +29,7 @@ namespace GamePlay
         private string BuildServerUrl(string serverRoot)
         {
             var cleanRoot = serverRoot?.TrimEnd('/') ?? string.Empty;
-            return $"{cleanRoot}/{Application.version}/{ResourceVersion}";
+            return $"{cleanRoot}/{ResourceVersion}";
         }
     }
 

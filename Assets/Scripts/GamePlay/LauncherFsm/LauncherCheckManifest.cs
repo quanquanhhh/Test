@@ -31,16 +31,14 @@ namespace GamePlay.LauncherFsm
         protected async void CheckAndUpdateManifest(IFsm<LauncherFsm> fsm)
         {
             Debug.Log("CheckAndUpdatePatchManifest");
-
+ 
             var package = YooAssets.GetPackage(GlobalSetting.PackageName);
+             
+            
+            
+            // package.UnloadAllAssetsAsync();
 
-            package.UnloadAllAssetsAsync();
-
-            Debug.Log($"CheckServerVersion Pass");
-
-            // var hostServer = GlobalSetting.GetHostResUrl();
-            //
-            // Debug.Log($"ResourceHostServer:{hostServer}");
+            Debug.Log($"CheckServerVersion Pass"); 
 
             var operation = package.UpdatePackageManifestAsync(GlobalSetting.ResourceVersion,60);
 
@@ -55,12 +53,12 @@ namespace GamePlay.LauncherFsm
 
             if (operation.Status == EOperationStatus.Succeed)
             {
-                ChangeState<LauncherGame>(fsm);
+                ChangeState<LauncherDownload>(fsm);
                 var packageVersion = YooAssets.GetPackage(GlobalSetting.PackageName).GetPackageVersion();
                 if (!string.IsNullOrEmpty(packageVersion))
                 {
                     PlayerPrefs.SetString("ResourceVersionKey", packageVersion);
-                    Debug.LogError("Store Local Res Version:" + packageVersion);
+                    Debug.Log("Store Local Res Version:" + packageVersion);
                 }
             }
             else

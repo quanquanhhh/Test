@@ -1,143 +1,107 @@
-using System;
-using System.IO;
-using UnityEditor;
-using UnityEngine;
-using GamePlay;
-using YooAsset.Editor;
-
-namespace EditorTools
-{
-    public static class YooAssetBuildEditorTools
-    {
-        private const string BuiltinTag = "buildin";
-
-        [MenuItem("Tools/YooAsset/Rebuild Full Package", priority = 100)]
-        public static void RebuildFullPackage()
-        {
-            ExecuteBuild(copyBuiltinToStreamingAssets: false, forceCleanPackageRoot: true);
-        }
-
-        [MenuItem("Tools/YooAsset/Prepare Builtin To StreamingAssets", priority = 101)]
-        public static void PrepareBuiltinToStreamingAssets()
-        {
-            ExecuteBuild(copyBuiltinToStreamingAssets: true, forceCleanPackageRoot: false);
-        }
-
-        private static void ExecuteBuild(bool copyBuiltinToStreamingAssets, bool forceCleanPackageRoot)
-        {
-            try
-            {
-                string packageName = ResolvePackageName();
-                BuildTarget buildTarget = EditorUserBuildSettings.activeBuildTarget;
-                string packageVersion = ResolvePackageVersion();
-
-                if (string.IsNullOrEmpty(packageName))
-                {
-                    Debug.LogError("[YooAssetBuildTool] Build aborted. Package name is empty. Configure GlobalSetting.RuntimeConfig.PackageName first.");
-                    return;
-                }
-
-                ScriptableBuildParameters buildParameters = CreateBuildParameters(packageName, packageVersion, buildTarget, copyBuiltinToStreamingAssets);
-                string packageRootDirectory = buildParameters.GetPackageRootDirectory();
-
-                if (forceCleanPackageRoot)
-                {
-                    CleanPackageRootDirectory(packageRootDirectory);
-                }
-
-                Debug.Log($"[YooAssetBuildTool] Start build. Package:{packageName}, Target:{buildTarget}, OutputRoot:{buildParameters.BuildOutputRoot}, OutputPath:{buildParameters.GetPackageOutputDirectory()}, CopyBuiltin:{copyBuiltinToStreamingAssets}, BuildinTag:{BuiltinTag}");
-
-                var pipeline = new ScriptableBuildPipeline();
-                BuildResult buildResult = pipeline.Run(buildParameters, true);
-
-                if (buildResult.Success == false)
-                {
-                    Debug.LogError($"[YooAssetBuildTool] Build failed. Package:{packageName}, Target:{buildTarget}, OutputPath:{buildParameters.GetPackageOutputDirectory()}, Error:{buildResult.ErrorInfo}");
-                    return;
-                }
-
-                Debug.Log($"[YooAssetBuildTool] Build succeeded. Package:{packageName}, Target:{buildTarget}, OutputPath:{buildResult.OutputPackageDirectory}");
-
-                if (copyBuiltinToStreamingAssets)
-                {
-                    string buildinRootDirectory = buildParameters.GetBuildinRootDirectory();
-                    int copiedFileCount = CountFiles(buildinRootDirectory);
-                    Debug.Log($"[YooAssetBuildTool] Builtin prepared. Package:{packageName}, Target:{buildTarget}, Source:{buildResult.OutputPackageDirectory}, Destination:{buildinRootDirectory}, CopiedFileCount:{copiedFileCount}");
-                }
-
-                AssetDatabase.Refresh();
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"[YooAssetBuildTool] Unexpected failure. Reason:{ex}");
-            }
-        }
-
-        private static ScriptableBuildParameters CreateBuildParameters(string packageName, string packageVersion, BuildTarget buildTarget, bool copyBuiltinToStreamingAssets)
-        {
-            var buildParameters = new ScriptableBuildParameters
-            {
-                BuildOutputRoot = AssetBundleBuilderHelper.GetDefaultBuildOutputRoot(),
-                BuildinFileRoot = AssetBundleBuilderHelper.GetStreamingAssetsRoot(),
-                BuildPipeline = EBuildPipeline.ScriptableBuildPipeline.ToString(),
-                BuildBundleType = (int)EBuildBundleType.AssetBundle,
-                BuildTarget = buildTarget,
-                PackageName = packageName,
-                PackageVersion = packageVersion,
-                EnableSharePackRule = true,
-                VerifyBuildingResult = true,
-                FileNameStyle = EFileNameStyle.HashName,
-                BuildinFileCopyOption = copyBuiltinToStreamingAssets ? EBuildinFileCopyOption.ClearAndCopyByTags : EBuildinFileCopyOption.None,
-                BuildinFileCopyParams = BuiltinTag,
-                CompressOption = ECompressOption.LZ4,
-                ClearBuildCacheFiles = false,
-                UseAssetDependencyDB = true
-            };
-
-            return buildParameters;
-        }
-
-        private static void CleanPackageRootDirectory(string packageRootDirectory)
-        {
-            if (Directory.Exists(packageRootDirectory) == false)
-            {
-                return;
-            }
-
-            Directory.Delete(packageRootDirectory, true);
-            Debug.Log($"[YooAssetBuildTool] Cleaned old package output directory : {packageRootDirectory}");
-        }
-
-        private static string ResolvePackageName()
-        {
-            var runtimeConfig = GlobalSetting.RuntimeConfig;
-            if (runtimeConfig != null && string.IsNullOrEmpty(runtimeConfig.PackageName) == false)
-            {
-                return runtimeConfig.PackageName;
-            }
-
-            return string.Empty;
-        }
-
-        private static string ResolvePackageVersion()
-        {
-            string version = GlobalSetting.ResourceVersion;
-            if (string.IsNullOrEmpty(version))
-            {
-                version = DateTime.Now.ToString("yyyyMMddHHmmss");
-            }
-
-            return version;
-        }
-
-        private static int CountFiles(string folderPath)
-        {
-            if (Directory.Exists(folderPath) == false)
-            {
-                return 0;
-            }
-
-            return Directory.GetFiles(folderPath, "*", SearchOption.AllDirectories).Length;
-        }
-    }
-}
+// using System;
+// using System.IO;
+// using UnityEditor;
+// using UnityEngine;
+// using GamePlay;
+// using YooAsset;
+// using YooAsset.Editor;
+//
+// namespace EditorTools
+// {
+//     public static class BuildVersionSetting
+//     {
+// #if UNITY_IOS
+//         public static string serverVersion = "v1";
+//         public static string resourcesRootVersion = "rv9";
+//         public static string version = "1.0.9";
+//         public static string versionCode = "14";
+//         public const string bundleFolderName = "ios";
+// #elif UNITY_ANDROID
+//         public static string serverVersion = "v1";
+//         public static string resourcesRootVersion = "rv11";
+//         public static string version = "1.0.12";
+//         public static string versionCode = "17";
+//         public const string bundleFolderName = "android";
+// #endif
+//         public static string resourcesVersion = "v1";
+//     }
+//     
+//     public static class YooAssetBuildEditorTools
+//     {
+//         private const string BuiltinTag = "BuildIn";
+//
+//         
+//         public static void EncryptLocaleKv(string rootFolder)
+//         {
+// #if UNITY_IOS
+//         var allFiles = Directory.GetFiles(Path.Combine(Application.dataPath, rootFolder));
+//
+//         foreach (var file in allFiles)
+//         {
+//             if (!file.EndsWith(".json"))
+//                 continue;
+//             var textFileName = Path.GetFileName(file);
+//             textFileName = textFileName.Replace(Path.GetExtension(textFileName), "");
+//
+//             // if(!textFileName.StartsWith("locale_loading_")) 
+//             //     continue;
+//        
+//             if (!textFileName.Contains("_ios"))
+//             {
+//                 var configTextAsset = File.ReadAllText(file);
+//
+//                 var listConfig = JsonConvert.DeserializeObject<List<LocaleItemConfig>>(configTextAsset);
+//                 if (listConfig != null)
+//                 {
+//                     for (var i = 0; i < listConfig.Count; i++)
+//                     {
+//                         listConfig[i].Key = StringCoder.Encoding(listConfig[i].Key);
+//                         listConfig[i].Value = StringCoder.Encoding(listConfig[i].Value);
+//                     }
+//
+//                     var newContent = JsonConvert.SerializeObject(listConfig);
+//
+//                     //添加额外后缀
+//                     var savePath = Path.Combine(Application.dataPath, rootFolder,
+//                         $"{textFileName.Replace("locale_", "")}_ios.bytes");
+//
+//                     if (File.Exists(savePath))
+//                     {
+//                         File.Delete(savePath);
+//                     }
+//                     
+//                     //文件加密之后，换一文件名存储
+//                     File.WriteAllText(savePath, newContent);
+//                     //删除老的未加密的配置
+//                    
+//                     File.Delete(file);
+//
+//                     if (File.Exists(file + ".meta"))
+//                     {
+//                         File.Delete(file + ".meta");
+//                     }
+//                 }
+//             }
+//
+//         }
+// #endif
+//             AssetDatabase.Refresh();
+//         }
+//         private static void BuildAssetBundle(BuildTarget target, bool isDebug, bool copyBuildInBundle = false)
+// {
+//     if (!isDebug)
+//     {
+//         ConfigurationController.Instance.version = VersionStatus.RELEASE;
+//     }
+//
+//     if (target == BuildTarget.iOS)
+//     {
+//         EncryptLocaleKv("InstallAssets/Configs/LocaleConfig");
+//
+//         if (copyBuildInBundle)
+//             EncryptLocaleKv("Resources/Export/Configs/LocaleConfig");
+//     }
+//
+//
+//     }
+// }

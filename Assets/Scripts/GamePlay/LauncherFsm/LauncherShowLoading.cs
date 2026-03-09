@@ -20,8 +20,8 @@ namespace GamePlay.LauncherFsm
 
         private void ShowLoading(IFsm<LauncherFsm> fsm)
         {
-            var load = Resources.Load<GameObject>("InApp/UILoading/Prefabs/UILoading");
-            var uiCanvas = GameObject.Find("Root/UI/UICanvas");
+            var load = Resources.Load<GameObject>("Loading/Loading");
+            var uiCanvas = GameObject.Find("Root/UIRoot/UICanvas");
             if (uiCanvas != null)
             {
                 var loadView = GameObject.Instantiate(load, uiCanvas.transform);

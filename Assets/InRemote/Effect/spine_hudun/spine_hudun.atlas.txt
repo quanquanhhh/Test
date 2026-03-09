@@ -1,0 +1,244 @@
+
+spine_hudun.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dg
+  rotate: true
+  xy: 760, 597
+  size: 99, 77
+  orig: 99, 77
+  offset: 0, 0
+  index: -1
+fdj
+  rotate: false
+  xy: 640, 572
+  size: 118, 124
+  orig: 119, 125
+  offset: 1, 1
+  index: -1
+hudun
+  rotate: false
+  xy: 2, 671
+  size: 323, 351
+  orig: 325, 352
+  offset: 1, 1
+  index: -1
+hudun_sg/hudun_sg_00000
+  rotate: false
+  xy: 26, 7
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hudun_sg/hudun_sg_00001
+  rotate: false
+  xy: 26, 7
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hudun_sg/hudun_sg_00002
+  rotate: false
+  xy: 26, 7
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hudun_sg/hudun_sg_00003
+  rotate: false
+  xy: 26, 7
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hudun_sg/hudun_sg_00004
+  rotate: false
+  xy: 26, 7
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+hudun_sg/hudun_sg_00005
+  rotate: false
+  xy: 2, 2
+  size: 22, 6
+  orig: 234, 282
+  offset: 114, 276
+  index: -1
+hudun_sg/hudun_sg_00006
+  rotate: false
+  xy: 2, 10
+  size: 74, 26
+  orig: 234, 282
+  offset: 84, 256
+  index: -1
+hudun_sg/hudun_sg_00007
+  rotate: false
+  xy: 460, 23
+  size: 169, 47
+  orig: 234, 282
+  offset: 17, 235
+  index: -1
+hudun_sg/hudun_sg_00008
+  rotate: false
+  xy: 733, 66
+  size: 222, 69
+  orig: 234, 282
+  offset: 4, 213
+  index: -1
+hudun_sg/hudun_sg_00009
+  rotate: true
+  xy: 635, 235
+  size: 226, 86
+  orig: 234, 282
+  offset: 4, 196
+  index: -1
+hudun_sg/hudun_sg_00010
+  rotate: false
+  xy: 557, 698
+  size: 227, 102
+  orig: 234, 282
+  offset: 3, 180
+  index: -1
+hudun_sg/hudun_sg_00011
+  rotate: false
+  xy: 327, 677
+  size: 228, 118
+  orig: 234, 282
+  offset: 2, 164
+  index: -1
+hudun_sg/hudun_sg_00012
+  rotate: true
+  xy: 499, 222
+  size: 228, 134
+  orig: 234, 282
+  offset: 2, 148
+  index: -1
+hudun_sg/hudun_sg_00013
+  rotate: true
+  xy: 348, 221
+  size: 229, 149
+  orig: 234, 282
+  offset: 1, 133
+  index: -1
+hudun_sg/hudun_sg_00014
+  rotate: false
+  xy: 491, 865
+  size: 229, 157
+  orig: 234, 282
+  offset: 1, 117
+  index: -1
+hudun_sg/hudun_sg_00015
+  rotate: true
+  xy: 177, 441
+  size: 228, 168
+  orig: 234, 282
+  offset: 2, 101
+  index: -1
+hudun_sg/hudun_sg_00016
+  rotate: true
+  xy: 2, 441
+  size: 228, 173
+  orig: 234, 282
+  offset: 2, 86
+  index: -1
+hudun_sg/hudun_sg_00017
+  rotate: true
+  xy: 2, 211
+  size: 228, 173
+  orig: 234, 282
+  offset: 2, 71
+  index: -1
+hudun_sg/hudun_sg_00018
+  rotate: false
+  xy: 2, 38
+  size: 228, 171
+  orig: 234, 282
+  offset: 2, 57
+  index: -1
+hudun_sg/hudun_sg_00019
+  rotate: true
+  xy: 177, 213
+  size: 226, 169
+  orig: 234, 282
+  offset: 3, 43
+  index: -1
+hudun_sg/hudun_sg_00020
+  rotate: false
+  xy: 232, 45
+  size: 226, 166
+  orig: 234, 282
+  offset: 3, 30
+  index: -1
+hudun_sg/hudun_sg_00021
+  rotate: true
+  xy: 327, 797
+  size: 225, 162
+  orig: 234, 282
+  offset: 4, 18
+  index: -1
+hudun_sg/hudun_sg_00022
+  rotate: true
+  xy: 347, 452
+  size: 223, 158
+  orig: 234, 282
+  offset: 5, 6
+  index: -1
+hudun_sg/hudun_sg_00023
+  rotate: false
+  xy: 460, 72
+  size: 219, 147
+  orig: 234, 282
+  offset: 7, 0
+  index: -1
+hudun_sg/hudun_sg_00024
+  rotate: true
+  xy: 507, 463
+  size: 212, 131
+  orig: 234, 282
+  offset: 10, 0
+  index: -1
+hudun_sg/hudun_sg_00025
+  rotate: true
+  xy: 722, 821
+  size: 201, 114
+  orig: 234, 282
+  offset: 15, 0
+  index: -1
+hudun_sg/hudun_sg_00026
+  rotate: false
+  xy: 681, 137
+  size: 185, 96
+  orig: 234, 282
+  offset: 22, 0
+  index: -1
+hudun_sg/hudun_sg_00027
+  rotate: false
+  xy: 640, 492
+  size: 162, 78
+  orig: 234, 282
+  offset: 31, 0
+  index: -1
+hudun_sg/hudun_sg_00028
+  rotate: false
+  xy: 491, 802
+  size: 133, 61
+  orig: 234, 282
+  offset: 44, 0
+  index: -1
+hudun_sg/hudun_sg_00029
+  rotate: false
+  xy: 631, 28
+  size: 100, 42
+  orig: 234, 282
+  offset: 58, 0
+  index: -1
+hudun_sg/hudun_sg_00030
+  rotate: false
+  xy: 78, 13
+  size: 59, 23
+  orig: 234, 282
+  offset: 75, 0
+  index: -1

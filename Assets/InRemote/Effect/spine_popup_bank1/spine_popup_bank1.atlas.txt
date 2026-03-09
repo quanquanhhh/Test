@@ -1,0 +1,41 @@
+
+spine_popup_bank1.png
+size: 983,710
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bank
+  rotate: true
+  xy: 2, 2
+  size: 706, 855
+  orig: 706, 856
+  offset: 0, 1
+  index: -1
+images/lizi726
+  rotate: false
+  xy: 859, 466
+  size: 39, 39
+  orig: 47, 47
+  offset: 4, 4
+  index: -1
+images/xinnn20
+  rotate: false
+  xy: 859, 507
+  size: 64, 74
+  orig: 66, 82
+  offset: 2, 6
+  index: -1
+light2_1
+  rotate: false
+  xy: 925, 555
+  size: 26, 26
+  orig: 31, 31
+  offset: 2, 2
+  index: -1
+yLight
+  rotate: false
+  xy: 859, 583
+  size: 122, 125
+  orig: 157, 162
+  offset: 18, 19
+  index: -1

@@ -1,0 +1,20 @@
+
+spine_chess_1.png
+size: 179,189
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+light2
+  rotate: true
+  xy: 2, 2
+  size: 106, 175
+  orig: 111, 181
+  offset: 3, 4
+  index: -1
+lobby_chess_1
+  rotate: true
+  xy: 2, 110
+  size: 77, 133
+  orig: 77, 133
+  offset: 0, 0
+  index: -1

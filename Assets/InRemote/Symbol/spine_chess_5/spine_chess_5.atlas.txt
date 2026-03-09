@@ -1,0 +1,27 @@
+
+spine_chess_5.png
+size: 344,179
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dot
+  rotate: false
+  xy: 272, 105
+  size: 70, 72
+  orig: 79, 81
+  offset: 3, 5
+  index: -1
+light2
+  rotate: false
+  xy: 164, 2
+  size: 106, 175
+  orig: 111, 181
+  offset: 3, 4
+  index: -1
+lobby_chess_5
+  rotate: true
+  xy: 2, 12
+  size: 165, 160
+  orig: 165, 160
+  offset: 0, 0
+  index: -1

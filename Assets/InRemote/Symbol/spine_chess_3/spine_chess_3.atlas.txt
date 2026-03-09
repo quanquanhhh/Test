@@ -1,0 +1,20 @@
+
+spine_chess_3.png
+size: 310,133
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+light2
+  rotate: true
+  xy: 2, 25
+  size: 106, 175
+  orig: 111, 181
+  offset: 3, 4
+  index: -1
+lobby_chess_3
+  rotate: false
+  xy: 179, 2
+  size: 129, 129
+  orig: 129, 129
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,132 @@
+
+spine_chess_scatter.png
+size: 277,599
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bar
+  rotate: false
+  xy: 2, 223
+  size: 191, 180
+  orig: 191, 180
+  offset: 0, 0
+  index: -1
+eff_Light00
+  rotate: false
+  xy: 243, 6
+  size: 30, 30
+  orig: 32, 32
+  offset: 1, 1
+  index: -1
+eff_circle
+  rotate: false
+  xy: 216, 376
+  size: 45, 45
+  orig: 45, 45
+  offset: 0, 0
+  index: -1
+eff_light001_1
+  rotate: false
+  xy: 158, 15
+  size: 83, 21
+  orig: 98, 25
+  offset: 3, 2
+  index: -1
+eff_light002
+  rotate: false
+  xy: 111, 2
+  size: 27, 27
+  orig: 27, 27
+  offset: 0, 0
+  index: -1
+eff_light002_1
+  rotate: true
+  xy: 111, 70
+  size: 43, 45
+  orig: 46, 49
+  offset: 2, 2
+  index: -1
+eff_light003
+  rotate: false
+  xy: 2, 10
+  size: 107, 103
+  orig: 107, 105
+  offset: 0, 1
+  index: -1
+eff_light004
+  rotate: false
+  xy: 179, 128
+  size: 95, 88
+  orig: 95, 88
+  offset: 0, 0
+  index: -1
+eff_light005
+  rotate: false
+  xy: 179, 38
+  size: 95, 88
+  orig: 95, 88
+  offset: 0, 0
+  index: -1
+eff_light006
+  rotate: true
+  xy: 195, 218
+  size: 156, 80
+  orig: 159, 82
+  offset: 2, 1
+  index: -1
+light2
+  rotate: true
+  xy: 2, 115
+  size: 106, 175
+  orig: 111, 181
+  offset: 3, 4
+  index: -1
+scatter0
+  rotate: false
+  xy: 2, 405
+  size: 212, 192
+  orig: 212, 192
+  offset: 0, 0
+  index: -1
+scatter_a
+  rotate: true
+  xy: 111, 31
+  size: 37, 45
+  orig: 37, 45
+  offset: 0, 0
+  index: -1
+scatter_c
+  rotate: true
+  xy: 216, 531
+  size: 33, 48
+  orig: 33, 48
+  offset: 0, 0
+  index: -1
+scatter_e
+  rotate: true
+  xy: 216, 500
+  size: 29, 48
+  orig: 29, 48
+  offset: 0, 0
+  index: -1
+scatter_r
+  rotate: true
+  xy: 216, 463
+  size: 35, 47
+  orig: 35, 47
+  offset: 0, 0
+  index: -1
+scatter_s
+  rotate: true
+  xy: 216, 566
+  size: 31, 49
+  orig: 31, 49
+  offset: 0, 0
+  index: -1
+scatter_t
+  rotate: true
+  xy: 216, 423
+  size: 38, 46
+  orig: 38, 46
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,27 @@
+
+com_light.png
+size: 1299,1084
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+07
+  rotate: false
+  xy: 1116, 846
+  size: 52, 52
+  orig: 52, 52
+  offset: 0, 0
+  index: -1
+16
+  rotate: false
+  xy: 1116, 900
+  size: 181, 182
+  orig: 193, 192
+  offset: 7, 6
+  index: -1
+bg_light2
+  rotate: true
+  xy: 2, 2
+  size: 1080, 1112
+  orig: 1080, 1143
+  offset: 0, 13
+  index: -1

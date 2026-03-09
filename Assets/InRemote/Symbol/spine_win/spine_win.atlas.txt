@@ -1,0 +1,90 @@
+
+spine_win.png
+size: 2126,179
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ft_selectWin_B_000
+  rotate: false
+  xy: 179, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_002
+  rotate: false
+  xy: 356, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_004
+  rotate: false
+  xy: 533, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_006
+  rotate: false
+  xy: 710, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_008
+  rotate: false
+  xy: 887, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_010
+  rotate: false
+  xy: 1064, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_012
+  rotate: false
+  xy: 1241, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_014
+  rotate: false
+  xy: 1418, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_016
+  rotate: false
+  xy: 1595, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_018
+  rotate: false
+  xy: 1772, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_020
+  rotate: false
+  xy: 1949, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1
+ft_selectWin_B_022
+  rotate: false
+  xy: 2, 2
+  size: 175, 175
+  orig: 175, 175
+  offset: 0, 0
+  index: -1

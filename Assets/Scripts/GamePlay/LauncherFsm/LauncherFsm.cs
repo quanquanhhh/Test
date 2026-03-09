@@ -28,6 +28,7 @@ namespace GamePlay.LauncherFsm
             typeof(LauncherGetResourceVersion),
             typeof(LauncherSetUpView),
             typeof(LauncherShowLoading),
+            typeof(LauncherDownload),
         };
 
         private DOTween _doTween;

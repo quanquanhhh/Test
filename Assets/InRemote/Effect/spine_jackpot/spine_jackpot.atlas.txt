@@ -1,0 +1,146 @@
+
+spine_jackpot.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+big02
+  rotate: true
+  xy: 932, 56
+  size: 265, 247
+  orig: 273, 267
+  offset: 0, 0
+  index: -1
+big03
+  rotate: false
+  xy: 1598, 1441
+  size: 414, 405
+  orig: 416, 408
+  offset: 0, 3
+  index: -1
+dot
+  rotate: true
+  xy: 1880, 1970
+  size: 70, 72
+  orig: 79, 81
+  offset: 3, 5
+  index: -1
+dot02
+  rotate: true
+  xy: 1954, 2006
+  size: 34, 35
+  orig: 34, 35
+  offset: 0, 0
+  index: -1
+dot_zi
+  rotate: true
+  xy: 1991, 2006
+  size: 34, 35
+  orig: 34, 35
+  offset: 0, 0
+  index: -1
+dotsuper
+  rotate: true
+  xy: 1954, 1970
+  size: 34, 35
+  orig: 34, 35
+  offset: 0, 0
+  index: -1
+grand
+  rotate: true
+  xy: 1569, 355
+  size: 677, 181
+  orig: 681, 183
+  offset: 2, 2
+  index: -1
+grand2
+  rotate: false
+  xy: 196, 956
+  size: 621, 890
+  orig: 621, 890
+  offset: 0, 0
+  index: -1
+grand3
+  rotate: false
+  xy: 2, 1848
+  size: 937, 192
+  orig: 937, 192
+  offset: 0, 0
+  index: -1
+jackpot
+  rotate: true
+  xy: 758, 127
+  size: 827, 172
+  orig: 831, 174
+  offset: 2, 2
+  index: -1
+major
+  rotate: true
+  xy: 1383, 323
+  size: 712, 184
+  orig: 720, 186
+  offset: 4, 2
+  index: -1
+major2
+  rotate: false
+  xy: 2, 2
+  size: 754, 905
+  orig: 754, 907
+  offset: 0, 0
+  index: -1
+major3
+  rotate: false
+  xy: 941, 1848
+  size: 937, 192
+  orig: 937, 192
+  offset: 0, 0
+  index: -1
+mini
+  rotate: false
+  xy: 932, 854
+  size: 449, 181
+  orig: 454, 183
+  offset: 3, 2
+  index: -1
+mini2
+  rotate: false
+  xy: 819, 1037
+  size: 777, 809
+  orig: 777, 809
+  offset: 0, 0
+  index: -1
+mini3
+  rotate: true
+  xy: 2, 909
+  size: 937, 192
+  orig: 937, 192
+  offset: 0, 0
+  index: -1
+super03
+  rotate: false
+  xy: 1598, 1034
+  size: 414, 405
+  orig: 416, 408
+  offset: 0, 3
+  index: -1
+super04
+  rotate: true
+  xy: 1181, 56
+  size: 265, 247
+  orig: 273, 267
+  offset: 0, 0
+  index: -1
+zi
+  rotate: false
+  xy: 932, 447
+  size: 414, 405
+  orig: 416, 408
+  offset: 0, 3
+  index: -1
+zi2
+  rotate: true
+  xy: 1430, 56
+  size: 265, 247
+  orig: 273, 267
+  offset: 0, 0
+  index: -1

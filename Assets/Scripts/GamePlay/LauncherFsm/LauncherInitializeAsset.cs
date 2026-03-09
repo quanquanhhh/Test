@@ -70,16 +70,14 @@ namespace GamePlay.LauncherFsm
                 };
                 return package.InitializeAsync(editorParams);
             }
-
-            if (runtimeConfig.PlayMode == EPlayMode.OfflinePlayMode)
+            else if (runtimeConfig.PlayMode == EPlayMode.OfflinePlayMode)
             {
                 var offlineParams = new OfflinePlayModeParameters
                 {
                     BuildinFileSystemParameters = FileSystemParameters.CreateDefaultBuildinFileSystemParameters()
                 };
                 return package.InitializeAsync(offlineParams);
-            }
-
+            } 
             var defaultHostServer = runtimeConfig.GetMainHostServerURL();
             var fallbackHostServer = runtimeConfig.GetFallbackHostServerURL();
             Debug.Log($"[YooAsset] Host URLs. Main:{defaultHostServer}, Fallback:{fallbackHostServer}");

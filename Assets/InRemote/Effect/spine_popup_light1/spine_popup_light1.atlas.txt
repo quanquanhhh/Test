@@ -1,0 +1,27 @@
+
+spine_popup_light1.png
+size: 667,409
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+02
+  rotate: false
+  xy: 2, 2
+  size: 414, 405
+  orig: 416, 408
+  offset: 0, 3
+  index: -1
+03
+  rotate: true
+  xy: 418, 142
+  size: 265, 247
+  orig: 273, 267
+  offset: 0, 0
+  index: -1
+04
+  rotate: false
+  xy: 418, 105
+  size: 34, 35
+  orig: 34, 35
+  offset: 0, 0
+  index: -1

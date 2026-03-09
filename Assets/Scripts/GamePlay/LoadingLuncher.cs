@@ -12,7 +12,7 @@ namespace GamePlay
 {
     public class LoadingLuncher : MonoBehaviour
     {
-        public string PackageName;
+        // public string PackageName;
         public bool Local = true;
         public bool LoadS3 = true;
         public bool RunAccountCheck = true;
@@ -60,20 +60,22 @@ namespace GamePlay
             RunPlayMode = ResolvePlayMode();
             GlobalSetting.Configure(new YooAssetRuntimeConfig
             {
-                PackageName = string.IsNullOrEmpty(PackageName) ? GlobalSetting.PackageName : PackageName,
+                PackageName =  GlobalSetting.PackageName,
                 ResourceVersion = GlobalSetting.ResourceVersion,
                 PlayMode = RunPlayMode,
-                MainHostServer = "https://bunny.sheriffbunny.com/Test",
-                FallbackHostServer = "https://bunny.sheriffbunny.com/Test"
+                MainHostServer = "https://tile.desiregirls.net/Test",
+                FallbackHostServer = "https://tile.desiregirls.net/Test"
             });
             Application.targetFrameRate = FrameRate;
             Application.runInBackground = true;
+            
             GameCommon.GameName = GlobalSetting.PackageName;
+            
             RootManager.MgrRoot = GameObject.Find("Mgr");
-            RootManager.UIRoot = GameObject.Find("Canvas").transform; 
+            RootManager.UIRoot = GameObject.Find("Root/").transform; 
             
             DontDestroyOnLoad(RootManager.MgrRoot);
-            ScreenUtility.CheckRate();
+            // ScreenUtility.CheckRate();
             if (!RunAccountCheck && !LoadS3)
             {
                 MAXCHECKTIME = 1;

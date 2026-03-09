@@ -1,0 +1,90 @@
+
+spine_icon_box.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+A_huan_dis0001
+  rotate: false
+  xy: 727, 159
+  size: 144, 146
+  orig: 155, 155
+  offset: 4, 6
+  index: -1
+A_huan_dis0002
+  rotate: false
+  xy: 818, 336
+  size: 131, 146
+  orig: 155, 155
+  offset: 17, 6
+  index: -1
+A_huan_dis0003
+  rotate: false
+  xy: 727, 15
+  size: 100, 142
+  orig: 155, 155
+  offset: 44, 9
+  index: -1
+A_huan_dis0004
+  rotate: false
+  xy: 968, 76
+  size: 87, 126
+  orig: 155, 155
+  offset: 53, 16
+  index: -1
+box
+  rotate: true
+  xy: 873, 204
+  size: 130, 108
+  orig: 130, 108
+  offset: 0, 0
+  index: -1
+box2
+  rotate: false
+  xy: 829, 18
+  size: 137, 139
+  orig: 137, 139
+  offset: 0, 0
+  index: -1
+dot
+  rotate: false
+  xy: 968, 2
+  size: 70, 72
+  orig: 79, 81
+  offset: 3, 5
+  index: -1
+fangshe_03_ctg
+  rotate: false
+  xy: 517, 254
+  size: 191, 228
+  orig: 256, 256
+  offset: 40, 7
+  index: -1
+guang
+  rotate: false
+  xy: 517, 44
+  size: 208, 208
+  orig: 209, 208
+  offset: 0, 0
+  index: -1
+guang2
+  rotate: false
+  xy: 2, 3
+  size: 513, 479
+  orig: 519, 484
+  offset: 3, 3
+  index: -1
+light2
+  rotate: false
+  xy: 710, 307
+  size: 106, 175
+  orig: 111, 181
+  offset: 3, 4
+  index: -1
+sunshine000
+  rotate: true
+  xy: 951, 354
+  size: 128, 123
+  orig: 128, 128
+  offset: 0, 2
+  index: -1

@@ -84,6 +84,12 @@ namespace Foundation
             return Object.Instantiate(prefab, parent);
         }
 
+        public ResourceDownloaderOperation CreateDownloader(string tag = "BuildIn")
+        {
+            var package = GetPackage();
+            var downloader = package.CreateResourceDownloader(tag, 3, 3);
+            return downloader;
+        }
         public async UniTask<long> GetDownloadSizeByTagAsync(string tag)
         {
             if (string.IsNullOrEmpty(tag))
@@ -98,7 +104,8 @@ namespace Foundation
                 return 0;
             }
 
-            var operation = package.GetDownloadSizeByTagAsync(tag);
+            
+            var operation = package.CreateResourceDownloader(tag, 3, 3);
             await operation.Task;
             if (operation.Status != EOperationStatus.Succeed)
             {

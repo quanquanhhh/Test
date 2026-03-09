@@ -16,7 +16,7 @@ MonoBehaviour:
   ShowEditorAlias: 0
   UniqueBundleName: 0
   Packages:
-  - PackageName: TidesSolitaire
+  - PackageName: Tile
     PackageDesc: 
     EnableAddressable: 1
     SupportExtensionless: 1
@@ -25,13 +25,74 @@ MonoBehaviour:
     AutoCollectShaders: 1
     IgnoreRuleName: NormalIgnoreRule
     Groups:
-    - GroupName: Prefab
+    - GroupName: BuildIn
       GroupDesc: 
-      AssetTags: 
+      AssetTags: BuildIn
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/InApp/bubble_img_1.png
-        CollectorGUID: e4a6519e96e593547b294d592b9289b8
+      - CollectPath: Assets/InRemote/Symbol
+        CollectorGUID: 7641dda7798b73a4aa24352ef8e41642
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: Hot
+      GroupDesc: 
+      AssetTags: Hot
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/InRemote/Audio
+        CollectorGUID: 52efedca7f066fe45b965b1dab84d813
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/InRemote/Config
+        CollectorGUID: 7c6933f0d9437584ab534adfee21b8c9
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/InRemote/Effect
+        CollectorGUID: 352259870d3cbdc41a7c227838d1f038
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/InRemote/prefab
+        CollectorGUID: 1dc39e1fe7b063e4992bdef54e82ff12
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/InRemote/SpriteAsset
+        CollectorGUID: a4574cdbda33b3c428e74f860c5e459c
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/InRemote/ui
+        CollectorGUID: 1a833cdac86a81d48ad33ce8008c9912
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+      - CollectPath: Assets/InRemote/verifys
+        CollectorGUID: 19324c6c76f20a646884b98fcfe589b9
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackDirectory
