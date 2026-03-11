@@ -26,7 +26,9 @@ namespace GamePlay.LauncherFsm
             return $"{_fallbackHostServer}/{fileName}";
         }
     }
-
+/// <summary>
+/// 对应 FsmInitializePackage
+/// </summary>
     public class LauncherInitializeAsset : LauncherBase
     {
         protected internal override void OnInit(IFsm<LauncherFsm> fsm)
@@ -42,16 +44,16 @@ namespace GamePlay.LauncherFsm
             YooAssets.Initialize();
 
             var package = YooAssets.TryGetPackage(GlobalSetting.PackageName) ?? YooAssets.CreatePackage(GlobalSetting.PackageName);
-            YooAssets.SetDefaultPackage(package);
+            // YooAssets.SetDefaultPackage(package);
 
             InitializationOperation operation = CreateInitializeOperation(package);
             await operation.Task;
+            
             if (operation.Status != EOperationStatus.Succeed)
             {
                 Debug.LogError("[YooAsset] LauncherInitializeAsset failed : " + operation.Error);
                 return;
             }
-
             ResourceModule.Instance.Initialize(GlobalSetting.PackageName);
             Debug.Log($"[YooAsset] Package initialize succeed. Package:{GlobalSetting.PackageName}");
             ChangeState<LauncherCheckManifest>(fsm);
@@ -59,15 +61,12 @@ namespace GamePlay.LauncherFsm
 
         private InitializationOperation CreateInitializeOperation(ResourcePackage package)
         {
-            var runtimeConfig = GlobalSetting.RuntimeConfig;
-            Debug.Log($"[YooAsset] Initializing package. Mode:{runtimeConfig.PlayMode}, Package:{runtimeConfig.PackageName}");
+            var runtimeConfig = GlobalSetting.RuntimeConfig; 
 
             if (runtimeConfig.PlayMode == EPlayMode.EditorSimulateMode)
             {
-                var editorParams = new EditorSimulateModeParameters
-                {
-                    EditorFileSystemParameters = FileSystemParameters.CreateDefaultEditorFileSystemParameters(runtimeConfig.PackageName)
-                };
+                var editorParams = new EditorSimulateModeParameters();
+                editorParams.EditorFileSystemParameters = FileSystemParameters.CreateDefaultEditorFileSystemParameters(runtimeConfig.PackageName);
                 return package.InitializeAsync(editorParams);
             }
             else if (runtimeConfig.PlayMode == EPlayMode.OfflinePlayMode)

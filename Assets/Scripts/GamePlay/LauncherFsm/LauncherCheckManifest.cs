@@ -4,6 +4,9 @@ using YooAsset;
 
 namespace GamePlay.LauncherFsm
 {
+    /// <summary>
+    /// FsmRequestPackageVersion
+    /// </summary>
     public class LauncherCheckManifest : LauncherBase
     {
         protected internal override void OnInit(IFsm<LauncherFsm> fsm)
@@ -30,23 +33,17 @@ namespace GamePlay.LauncherFsm
         }
         protected async void CheckAndUpdateManifest(IFsm<LauncherFsm> fsm)
         {
-            Debug.Log("CheckAndUpdatePatchManifest");
- 
             var package = YooAssets.GetPackage(GlobalSetting.PackageName);
-             
-            
-            
-            // package.UnloadAllAssetsAsync();
-
-            Debug.Log($"CheckServerVersion Pass"); 
-
-            var operation = package.UpdatePackageManifestAsync(GlobalSetting.ResourceVersion,60);
-
+            var operation = package.RequestPackageVersionAsync();
             await operation.Task;
-
-            var a =package.GetAllAssetInfos();
-            Debug.Log($"UpdateManifest Pass");
-
+            if (operation.Status != EOperationStatus.Succeed)
+            {
+                Debug.Log(" GET RequestPackageVersion Fail" + operation.Error);
+                return;
+            }
+            Debug.Log($" GET RequestPackageVersion Success : {operation.PackageVersion} Name {operation.PackageName}");
+            var checkManifest = package.UpdatePackageManifestAsync(GlobalSetting.ResourceVersion,60);
+            await checkManifest.Task;
             if (operation.Status ==  EOperationStatus.Failed)
             {
                 Debug.LogError("UpdateManifest:Error->:" + operation.Error);

@@ -62,9 +62,7 @@ namespace GamePlay
             {
                 PackageName =  GlobalSetting.PackageName,
                 ResourceVersion = GlobalSetting.ResourceVersion,
-                PlayMode = RunPlayMode,
-                MainHostServer = "https://tile.desiregirls.net/Test",
-                FallbackHostServer = "https://tile.desiregirls.net/Test"
+                PlayMode = RunPlayMode
             });
             Application.targetFrameRate = FrameRate;
             Application.runInBackground = true;
@@ -91,8 +89,8 @@ namespace GamePlay
               
             
             CreateGame();
-             
 
+            // LoadGameConfigFromWeb();
         }
  
  
@@ -120,7 +118,7 @@ namespace GamePlay
                 return "";
             }
             string result = "";
-            string url = $"https://she.sheriffbunny.net/GP/{Application.version}/TidesSolitaire.txt";
+            string url = $"{GlobalSetting.MainHostServer}/{GlobalSetting.ResourceVersion}/test.txt";
             // Debug.Log(url);
             UnityWebRequest request = null;
 

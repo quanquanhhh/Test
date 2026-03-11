@@ -25,28 +25,15 @@ MonoBehaviour:
     AutoCollectShaders: 1
     IgnoreRuleName: NormalIgnoreRule
     Groups:
-    - GroupName: BuildIn
+    - GroupName: Default Group3
       GroupDesc: 
-      AssetTags: BuildIn
+      AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/InRemote/cardIcon
-        CollectorGUID: 0ef60ba3d4d25b54ba2df72de402fe72
+      - CollectPath: Assets/InRemote/large_AIMG_JPG
+        CollectorGUID: 57a287ddc34bbac4c90a986c07579578
         CollectorType: 0
-        AddressRuleName: AddressByFileName
-        PackRuleName: PackDirectory
-        FilterRuleName: CollectAll
-        AssetTags: 
-        UserData: 
-    - GroupName: Hot
-      GroupDesc: 
-      AssetTags: Hot
-      ActiveRuleName: EnableGroup
-      Collectors:
-      - CollectPath: Assets/InRemote/common
-        CollectorGUID: df1cef3fda9e492429f25c960a96fab0
-        CollectorType: 0
-        AddressRuleName: AddressByFileName
+        AddressRuleName: AddressByFolderAndFileName
         PackRuleName: PackDirectory
         FilterRuleName: CollectAll
         AssetTags: 

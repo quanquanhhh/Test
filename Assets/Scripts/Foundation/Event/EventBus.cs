@@ -6,9 +6,7 @@ namespace Foundation
     public interface IEvent
     {
     } 
-    public struct UpLevelEvent : IEvent { }
-    public struct CheckAccountFinished : IEvent { }
-    public struct IntoGame : IEvent { }
+     
     public struct EventTask : IEvent
     {
         public int taskType;
@@ -46,17 +44,10 @@ namespace Foundation
             action = a; 
         }
     }
-    
-    public struct GetReward : IEvent
-    {
-        public Vector3 pos;
-        public int amount;
-        public int rewardType;
-        public GetReward( int rewardType, int amount,Vector3 pos)
-        {
-            this.pos = pos;
-            this.amount = amount;
-            this.rewardType = rewardType;
-        }
-    }
+    public struct UserTryInitialize : IEvent { }
+    public struct UserBeginDownloadWebFiles : IEvent { }
+    public struct UserTryRequestPackageVersion : IEvent { }
+    public struct UserTryUpdatePackageManifest : IEvent { }
+    public struct UserTryDownloadWebFiles : IEvent { }
+     
 }

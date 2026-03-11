@@ -5,16 +5,26 @@ using YooAsset;
 
 namespace GamePlay.LauncherFsm
 {
+    /// <summary>
+    /// FsmCreateDownloader
+    /// </summary>
     public class LauncherDownload: LauncherBase
     {
         private int downloadCount = 0;
-        protected internal override void OnEnter(IFsm<LauncherFsm> fsm)
+        protected internal override async void OnEnter(IFsm<LauncherFsm> fsm)
         {
             base.OnEnter(fsm);
 
             var downloader = ResourceModule.Instance.CreateDownloader();
-            var downloader2 = ResourceModule.Instance.CreateDownloader("Hot");
-            var a = downloader2.TotalDownloadCount;
+            await downloader.Task;
+            if (downloader.TotalDownloadCount != 0)
+            {
+                Debug.Log("Not found any download files !");
+            }
+            else
+            {
+                
+            }
             if (downloader.TotalDownloadCount != 0)
             {
                 downloadCount = downloader.TotalDownloadCount;
@@ -22,10 +32,10 @@ namespace GamePlay.LauncherFsm
                 float sizeMb = totaldownloadBytes / (1024 * 1024);
                 sizeMb = Mathf.Clamp(sizeMb, 0.1f, float.MaxValue);
                 float totalSize = sizeMb;
-                BeginDownload(downloader);
+                BeginDownload(downloader,fsm);
             }
         }
-        private async void BeginDownload(ResourceDownloaderOperation downloader)
+        private async void BeginDownload(ResourceDownloaderOperation downloader, IFsm<LauncherFsm> fsm)
         { 
             // 注册下载回调 
             downloader.DownloadErrorCallback = OnDownloadErrorCallback;
@@ -39,7 +49,8 @@ namespace GamePlay.LauncherFsm
             if (downloader.Status != EOperationStatus.Succeed)
                 return;
  
-            // OnAssetsLoadCompleted();
+            
+            ChangeState<LauncherDownloadPackageOver>(fsm);
         }
 
         private void OnDownloadFileBeginCallback(DownloadFileData data)

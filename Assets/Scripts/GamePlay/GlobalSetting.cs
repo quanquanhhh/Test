@@ -8,33 +8,33 @@ namespace GamePlay
     {
         public string PackageName = "Tile";
         public string ResourceVersion = "v1";
-        public EPlayMode PlayMode = EPlayMode.HostPlayMode;
-        public string MainHostServer = "https://tile.desiregirls.net/Test";
-        public string FallbackHostServer = "https://tile.desiregirls.net/Test";
-
+        public EPlayMode PlayMode = EPlayMode.HostPlayMode; 
         public string GetMainHostServerURL()
         {
-            return BuildServerUrl(MainHostServer);
+            return BuildServerUrl(GlobalSetting.MainHostServer);
         }
 
         public string GetFallbackHostServerURL()
         {
-            if (string.IsNullOrEmpty(FallbackHostServer))
+            if (string.IsNullOrEmpty(GlobalSetting.FallbackHostServer))
             {
-                return BuildServerUrl(MainHostServer);
+                return BuildServerUrl(GlobalSetting.MainHostServer);
             }
-            return BuildServerUrl(FallbackHostServer);
+            return BuildServerUrl(GlobalSetting.FallbackHostServer);
         }
 
         private string BuildServerUrl(string serverRoot)
         {
-            var cleanRoot = serverRoot?.TrimEnd('/') ?? string.Empty;
-            return $"{cleanRoot}/{ResourceVersion}";
+            return $"{serverRoot}/{ResourceVersion}";
         }
     }
 
     public static class GlobalSetting
     {
+        
+        public static string MainHostServer = "https://tile.desiregirls.net/Test";
+        public static string FallbackHostServer = "https://tile.desiregirls.net/Test";
+        
         private static YooAssetRuntimeConfig _runtimeConfig = new YooAssetRuntimeConfig();
 
         public static YooAssetRuntimeConfig RuntimeConfig => _runtimeConfig;
@@ -53,7 +53,6 @@ namespace GamePlay
                 Debug.LogError("[YooAsset] Runtime config is null. Keep previous config.");
                 return;
             }
-
             _runtimeConfig = runtimeConfig;
             Debug.Log($"[YooAsset] Config updated. Package:{_runtimeConfig.PackageName}, PlayMode:{_runtimeConfig.PlayMode}, MainHost:{_runtimeConfig.GetMainHostServerURL()}, FallbackHost:{_runtimeConfig.GetFallbackHostServerURL()}");
         }
