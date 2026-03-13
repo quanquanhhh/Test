@@ -10,29 +10,23 @@ namespace GamePlay.LauncherFsm
     /// </summary>
     public class LauncherDownload: LauncherBase
     {
-        private int downloadCount = 0;
+        IFsm<LauncherFsm> _fsm;
+        private int lastProgress = 0;
+        float startTime  ;
         protected internal override async void OnEnter(IFsm<LauncherFsm> fsm)
         {
             base.OnEnter(fsm);
-
-            var downloader = ResourceModule.Instance.CreateDownloader();
-            await downloader.Task;
+            _fsm = fsm;
+            var downloader = ResourceModule.Instance.CreateDownloaderAll();
             if (downloader.TotalDownloadCount != 0)
             {
-                Debug.Log("Not found any download files !");
+                startTime = Time.realtimeSinceStartup;
+                BeginDownload(downloader,fsm);
             }
             else
             {
-                
-            }
-            if (downloader.TotalDownloadCount != 0)
-            {
-                downloadCount = downloader.TotalDownloadCount;
-                long totaldownloadBytes = downloader.TotalDownloadBytes;
-                float sizeMb = totaldownloadBytes / (1024 * 1024);
-                sizeMb = Mathf.Clamp(sizeMb, 0.1f, float.MaxValue);
-                float totalSize = sizeMb;
-                BeginDownload(downloader,fsm);
+                fsm.Owner.accumulateProgress += 50;
+                ChangeState<LauncherUpdateOver>(fsm);
             }
         }
         private async void BeginDownload(ResourceDownloaderOperation downloader, IFsm<LauncherFsm> fsm)
@@ -50,7 +44,7 @@ namespace GamePlay.LauncherFsm
                 return;
  
             
-            ChangeState<LauncherDownloadPackageOver>(fsm);
+            ChangeState<LauncherUpdateOver>(fsm);
         }
 
         private void OnDownloadFileBeginCallback(DownloadFileData data)
@@ -60,17 +54,26 @@ namespace GamePlay.LauncherFsm
 
         private void OnDownloadFinishCallback(DownloaderFinishData data)
         {
-            Debug.Log(data);
+            float endTime = Time.realtimeSinceStartup;
+            float cost = (endTime - startTime);
+            _fsm.Owner.debugInfo = $"download spend {cost:F2}s";   
         }
 
+        
         private void OnDownloadProgressCallback(DownloadUpdateData data)
         {
+            int add = (int)(data.Progress * 100 - lastProgress) / 2;
+            if (add != 0)
+            {
+                lastProgress = (int)(data.Progress * 100);
+            }
+            _fsm.Owner.accumulateProgress += add;
             Debug.Log(" oooo ::");
         }
 
         private void OnDownloadErrorCallback(DownloadErrorData   error)
         {
-            Debug.Log(" error ::");
+            Debug.Log(" error :" + error.ErrorInfo);
         }
 
     }

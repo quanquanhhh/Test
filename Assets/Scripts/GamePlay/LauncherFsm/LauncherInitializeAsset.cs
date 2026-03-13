@@ -33,7 +33,7 @@ namespace GamePlay.LauncherFsm
     {
         protected internal override void OnInit(IFsm<LauncherFsm> fsm)
         {
-            stepDeltaProgress = 0.08f;
+            stepDeltaProgress = 5f;
             base.OnInit(fsm);
         }
 
@@ -45,6 +45,7 @@ namespace GamePlay.LauncherFsm
 
             var package = YooAssets.TryGetPackage(GlobalSetting.PackageName) ?? YooAssets.CreatePackage(GlobalSetting.PackageName);
             // YooAssets.SetDefaultPackage(package);
+            
 
             InitializationOperation operation = CreateInitializeOperation(package);
             await operation.Task;
@@ -65,8 +66,10 @@ namespace GamePlay.LauncherFsm
 
             if (runtimeConfig.PlayMode == EPlayMode.EditorSimulateMode)
             {
+                var buildResult = EditorSimulateModeHelper.SimulateBuild(runtimeConfig.PackageName);
+                var packageRoot = buildResult.PackageRootDirectory;
                 var editorParams = new EditorSimulateModeParameters();
-                editorParams.EditorFileSystemParameters = FileSystemParameters.CreateDefaultEditorFileSystemParameters(runtimeConfig.PackageName);
+                editorParams.EditorFileSystemParameters = FileSystemParameters.CreateDefaultEditorFileSystemParameters(packageRoot);
                 return package.InitializeAsync(editorParams);
             }
             else if (runtimeConfig.PlayMode == EPlayMode.OfflinePlayMode)
@@ -84,8 +87,8 @@ namespace GamePlay.LauncherFsm
             IRemoteServices remoteServices = new RemoteServices(defaultHostServer, fallbackHostServer);
             var hostParams = new HostPlayModeParameters
             {
-                BuildinFileSystemParameters = FileSystemParameters.CreateDefaultBuildinFileSystemParameters(),
-                CacheFileSystemParameters = FileSystemParameters.CreateDefaultCacheFileSystemParameters(remoteServices)
+                BuildinFileSystemParameters = FileSystemParameters.CreateDefaultBuildinFileSystemParameters(new SecureAesCtrDecryption()),
+                CacheFileSystemParameters = FileSystemParameters.CreateDefaultCacheFileSystemParameters(remoteServices,new SecureAesCtrDecryption())
             };
             return package.InitializeAsync(hostParams);
         }

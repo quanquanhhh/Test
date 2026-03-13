@@ -11,7 +11,7 @@ namespace GamePlay.LauncherFsm
 
         protected internal override void OnInit(IFsm<LauncherFsm> fsm)
         {
-            stepDeltaProgress = 0.080f;
+            stepDeltaProgress = 5f;
             base.OnInit(fsm);
         }
 

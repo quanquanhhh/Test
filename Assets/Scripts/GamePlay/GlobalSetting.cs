@@ -64,4 +64,9 @@ namespace GamePlay
                 : _runtimeConfig.GetMainHostServerURL();
         }
     }
+
+    public static class GameViewComponent
+    {
+        public static LoadingLuncher _loadingLuncher;
+    }
 }

@@ -84,6 +84,12 @@ namespace Foundation
             return Object.Instantiate(prefab, parent);
         }
 
+        public ResourceDownloaderOperation CreateDownloaderAll()
+        {
+            var package = GetPackage();
+            var downloader = package.CreateResourceDownloader(10,3);
+            return downloader;
+        }
         public ResourceDownloaderOperation CreateDownloader(string tag = "BuildIn")
         {
             var package = GetPackage();

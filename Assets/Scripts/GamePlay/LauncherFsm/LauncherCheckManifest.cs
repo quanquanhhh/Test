@@ -12,7 +12,7 @@ namespace GamePlay.LauncherFsm
         protected internal override void OnInit(IFsm<LauncherFsm> fsm)
         {
 
-            stepDeltaProgress = 0.05f;
+            stepDeltaProgress = 10f;
             base.OnInit(fsm);
         }
 
@@ -20,36 +20,33 @@ namespace GamePlay.LauncherFsm
         {
             base.OnEnter(fsm);
 
-            if (GlobalSetting.RuntimeConfig.PlayMode == EPlayMode.EditorSimulateMode ||
-                Application.internetReachability == NetworkReachability.NotReachable)
-            {
-
-            }
-            else
-            {
-
-                CheckAndUpdateManifest(fsm);
-            }
+            CheckAndUpdateManifest(fsm);
         }
         protected async void CheckAndUpdateManifest(IFsm<LauncherFsm> fsm)
         {
             var package = YooAssets.GetPackage(GlobalSetting.PackageName);
-            var operation = package.RequestPackageVersionAsync();
-            await operation.Task;
-            if (operation.Status != EOperationStatus.Succeed)
+            string checkVersion = GlobalSetting.ResourceVersion;
+            if (GlobalSetting.RuntimeConfig.PlayMode == EPlayMode.EditorSimulateMode ||
+                Application.internetReachability == NetworkReachability.NotReachable)
             {
-                Debug.Log(" GET RequestPackageVersion Fail" + operation.Error);
-                return;
+                var operation = package.RequestPackageVersionAsync();
+                await operation.Task;
+                checkVersion = operation.PackageVersion;
             }
-            Debug.Log($" GET RequestPackageVersion Success : {operation.PackageVersion} Name {operation.PackageName}");
-            var checkManifest = package.UpdatePackageManifestAsync(GlobalSetting.ResourceVersion,60);
-            await checkManifest.Task;
-            if (operation.Status ==  EOperationStatus.Failed)
+            else
             {
-                Debug.LogError("UpdateManifest:Error->:" + operation.Error);
+                var a= package.ClearCacheFilesAsync(EFileClearMode.ClearAllManifestFiles);
+                await a.Task;
             }
 
-            if (operation.Status == EOperationStatus.Succeed)
+            var checkManifest = package.UpdatePackageManifestAsync(checkVersion,60);
+            await checkManifest.Task;
+            if (checkManifest.Status ==  EOperationStatus.Failed)
+            {
+                Debug.LogError("UpdateManifest:Error->:" + checkManifest.Error);
+            }
+
+            if (checkManifest.Status == EOperationStatus.Succeed)
             {
                 ChangeState<LauncherDownload>(fsm);
                 var packageVersion = YooAssets.GetPackage(GlobalSetting.PackageName).GetPackageVersion();

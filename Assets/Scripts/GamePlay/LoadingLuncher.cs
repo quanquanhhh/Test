@@ -13,12 +13,13 @@ namespace GamePlay
     public class LoadingLuncher : MonoBehaviour
     {
         // public string PackageName;
-        public bool Local = true;
+        public bool LocalRes = true;
         public bool LoadS3 = true;
         public bool RunAccountCheck = true;
         private int FrameRate = 60;
         private float MAXCHECKTIME = 0;
-
+        
+        
         public static EPlayMode RunPlayMode = EPlayMode.EditorSimulateMode;
         
         private LauncherFsm.LauncherFsm launcherFsm;
@@ -40,9 +41,9 @@ namespace GamePlay
         private EPlayMode ResolvePlayMode()
         {
 #if UNITY_EDITOR
-            return Local ? EPlayMode.EditorSimulateMode : EPlayMode.HostPlayMode;
+            return LocalRes ? EPlayMode.EditorSimulateMode : EPlayMode.HostPlayMode;
 #else
-            return Local ? EPlayMode.OfflinePlayMode : EPlayMode.HostPlayMode;
+            return LocalRes ? EPlayMode.OfflinePlayMode : EPlayMode.HostPlayMode;
 #endif
         }
 
@@ -80,7 +81,7 @@ namespace GamePlay
             }
             InitilizationSDK();  
             await UniTask.NextFrame();
-            if (!Local)
+            if (!LocalRes)
             {
                 GameCommon.InitSDKsByPlatform();
             }
